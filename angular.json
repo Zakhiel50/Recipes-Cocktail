@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "snapface": {
+    "CocktailRecipes": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -39,7 +39,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/snapface",
+            "outputPath": "dist/Cocktail_Recipes",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -84,10 +84,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "snapface:build:production"
+              "buildTarget": "CocktailRecipes:build:production"
             },
             "development": {
-              "buildTarget": "snapface:build:development"
+              "buildTarget": "CocktailRecipes:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -95,7 +95,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "snapface:build"
+            "buildTarget": "CocktailRecipes:build"
           }
         },
         "test": {

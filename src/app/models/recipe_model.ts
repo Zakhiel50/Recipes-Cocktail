@@ -21,4 +21,9 @@ export class RecipeModel {
     setCategory(category: string): void {
         this.category = category
     }
+
+    withCategory(category: string) {
+        this.setCategory(category)
+        return this
+    }
 }
