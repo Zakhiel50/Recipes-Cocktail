@@ -1,5 +1,5 @@
 <section class="body-container">
-    @for (faceSnap of faceSnaps; track faceSnap.title) {
-      <app-face-snap [faceSnap]="faceSnap"/>
+    @for (recipe of recipes; track recipe.title) {
+        <app-recipe [recipe]="recipe" />
     }
   </section>

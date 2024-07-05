@@ -1,4 +1,4 @@
-export class FaceSnap {
+export class RecipeModel {
 
     category?: string;
 

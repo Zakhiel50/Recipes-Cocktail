@@ -1,0 +1,13 @@
+<div class="recipe-card" [ngClass]="{ snapped: snapped }">
+    <h2 class="text">{{recipe.title | titlecase}}</h2>
+    <img [src]='recipe.imgURL' [alt]="recipe.title">
+    @if (recipe.category) {
+        <p class="text"><strong>{{recipe.category | lowercase}}</strong></p>
+    } @else {
+        <p class="text"><strong>Catégorie non spécifiée.</strong></p>
+    }
+    <p class="text">{{recipe.description}}</p>
+    <p class="text">Recette créé le {{recipe.createdAt | date: 'dd MMMM YYYY'}}</p>
+    <button class="like" (click)="onSnap()">{{btnText}}</button>
+    <p class="text">@if (snapped) {🍹} @else {🍸} <strong [ngStyle]="{ color: 'rgb(0,' + recipe.snaps / 1.5 + ',0)' }">{{recipe.snaps}}</strong></p>
+</div>
