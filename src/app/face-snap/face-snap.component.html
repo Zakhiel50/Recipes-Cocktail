@@ -1,0 +1,13 @@
+<div class="face-snap-card" [ngClass]="{ snapped: snapped }">
+    <h2 class="text">{{faceSnap.title | titlecase}}</h2>
+    <img [src]='faceSnap.imgURL' [alt]="faceSnap.title">
+    @if (faceSnap.category) {
+        <p class="text"><strong>{{faceSnap.category | lowercase}}</strong></p>
+    } @else {
+        <p class="text"><strong>Catégorie non spécifiée.</strong></p>
+    }
+    <p class="text">{{faceSnap.description}}</p>
+    <p class="text">Recette créé le {{faceSnap.createdAt | date: 'dd MMMM YYYY'}}</p>
+    <button class="like" (click)="onSnap()">{{btnText}}</button>
+    <p class="text">@if (snapped) {🍹} @else {🍸} <strong [ngStyle]="{ color: 'rgb(0,' + faceSnap.snaps / 1.5 + ',0)' }">{{faceSnap.snaps}}</strong></p>
+</div>
