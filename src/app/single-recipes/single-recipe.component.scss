@@ -1,0 +1,40 @@
+.recipe {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 3px 14px 1px rgba(76, 76, 76, 0.1);
+    border-radius: 12px;
+    padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  .text {
+    padding: 0 16px;
+  }
+
+    
+
+}
+.title {
+  width: 100%;
+  text-align: center;
+}
+
+img {
+  width: 60%;
+  height: 300px;
+  object-fit: cover;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  padding: 10px 16px;
+  background-color:rgb(188, 209, 236);
+  border: none;
+  border-radius: 6px;
+  font-size: 26px;
+  margin-left: 14px;
+  width: 50px;
+  height: 50px;
+}

@@ -12,7 +12,7 @@ export class RecipeModel {
         public createdAt: Date,
         public likes: number,
     ) {
-        this.id = crypto.randomUUID().substring(0, 8);
+        this.id = '1' //crypto.randomUUID().substring(0, 8);
         
     }
 

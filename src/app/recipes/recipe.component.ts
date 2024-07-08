@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { DatePipe, LowerCasePipe, NgClass, NgStyle, TitleCasePipe} from '@angular/common';
 import { RecipeModel } from '../models/recipe_model';
 import { RecipeListService } from '../services/recipes-list.services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipe',
@@ -22,7 +23,9 @@ export class RecipeComponent implements OnInit {
 liked!: boolean;
 btnText!: string;
 
-constructor(private recipesListService: RecipeListService) {
+constructor(private recipesListService: RecipeListService,
+  private router: Router
+) {
 
 }
 
@@ -43,4 +46,7 @@ ngOnInit(): void {
       this.btnText = 'Oh tchinn!'
     }
   }
+  onViewRecipe() {
+    this.router.navigateByUrl(`recipes/${this.recipe.id}`)
+      }
 }

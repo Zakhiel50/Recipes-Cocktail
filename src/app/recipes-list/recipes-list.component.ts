@@ -22,6 +22,6 @@ export class RecipesListComponent {
   ngOnInit(): void {
     this.recipes = this.recipesListService.getRecipes();
       const stringCategory: string = 'Catégorie:'
-      this.recipes[1].setCategory(`${stringCategory} Cocktail.`)
+      
   }
 }

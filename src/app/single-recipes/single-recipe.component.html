@@ -1,5 +1,6 @@
-<div class="recipe-card" [ngClass]="{ liked: liked }">
-    <h2 class="text">{{recipe.title | titlecase}}</h2>
+<div class="recipe" [ngClass]="{ liked: liked }">
+    <button class="btn" routerLink="/recipes">&lt;</button>
+    <h2 class="text title">{{recipe.title | titlecase}}</h2>
     <img [src]='recipe.imgURL' [alt]="recipe.title">
     @if (recipe.category) {
         <p class="text"><strong>{{recipe.category | lowercase}}</strong></p>
@@ -10,6 +11,4 @@
     <p class="text">Recette créé le {{recipe.createdAt | date: 'dd MMMM YYYY'}}</p>
     <button class="like" (click)="onLike()">{{btnText}}</button>
     <p class="text">@if (liked) {🍹} @else {🍸} <strong [ngStyle]="{ color: 'rgb(0,' + recipe.likes / 1.5 + ',0)' }">{{recipe.likes}}</strong></p>
-    <button (click)="onViewRecipe()"> Voir la recette</button>
-
 </div>

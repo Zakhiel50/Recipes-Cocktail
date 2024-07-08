@@ -12,7 +12,7 @@ export class RecipeListService {
           'Gin, jus de citron, eau gazeuse, sirop de sucre de canne',
           'https://www.1001cocktails.com/wp-content/uploads/1001cocktails/2018/06/shutterstock_2181241651-768x512.jpg',
           new Date(),
-          100
+          100,
         ),
         new RecipeModel(
           'Apple Fizz',
@@ -34,11 +34,19 @@ export class RecipeListService {
         return [...this.recipes]
       }
 
-      likeRecipeById(recipeId: string, likeType: RecipeType): void {
+      getRecipeById(recipeId: string): RecipeModel {
         const foundRecipe : RecipeModel | undefined = this.recipes.find(recipe => recipe.id === recipeId)
         if (!foundRecipe) {
           throw new Error('Recipe not found')
         }
-        foundRecipe.like(likeType);
+        return foundRecipe;
+      }
+
+      likeRecipeById(recipeId: string, likeType: RecipeType): void {
+        const recipe : RecipeModel | undefined = this.getRecipeById(recipeId)
+        if (!recipe) {
+          throw new Error('Recipe not found')
+        }
+        recipe.like(likeType);
       }
 }
