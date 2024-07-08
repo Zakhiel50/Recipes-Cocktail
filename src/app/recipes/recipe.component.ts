@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DatePipe, LowerCasePipe, NgClass, NgStyle, TitleCasePipe} from '@angular/common';
 import { RecipeModel } from '../models/recipe_model';
+import { RecipeListService } from '../services/recipes-list.services';
 
 @Component({
   selector: 'app-recipe',
@@ -18,22 +19,27 @@ import { RecipeModel } from '../models/recipe_model';
 export class RecipeComponent implements OnInit {
   @Input() recipe!: RecipeModel
 
-snapped!: boolean;
+liked!: boolean;
 btnText!: string;
 
+constructor(private recipesListService: RecipeListService) {
+
+}
+
+
 ngOnInit(): void {
-    this.snapped = false
+    this.liked = false
     this.btnText = 'Oh tchinn!'
   }
 
-  onSnap(): void {
-    if (this.snapped === false) {
-      this.recipe.addSnap()
-      this.snapped = true;
+  onLike(): void {
+    if (this.liked === false) {
+      this.recipesListService.likeRecipeById(this.recipe.id, 'like');
+      this.liked = true;
       this.btnText= 'Nope unlike!'
     } else {
-      this.recipe.removeSnap()
-      this.snapped = false;
+      this.recipesListService.likeRecipeById(this.recipe.id, 'unlike');
+      this.liked = false;
       this.btnText = 'Oh tchinn!'
     }
   }

@@ -1,21 +1,36 @@
+import { RecipeType } from "./recipe-type.type";
+
 export class RecipeModel {
 
     category?: string;
+    id: string;
 
     constructor(
         public title: string,
         public description: string,
         public imgURL: string,
         public createdAt: Date,
-        public snaps: number,
-    ) {}
+        public likes: number,
+    ) {
+        this.id = crypto.randomUUID().substring(0, 8);
+        
+    }
 
-    addSnap():void {
-            this.snaps++
+    addLike():void {
+            this.likes++
     } 
 
-    removeSnap():void {
-        this.snaps--
+    removeLike():void {
+        this.likes--
+    }
+
+    like(recipeType: RecipeType ) {
+        if (recipeType === 'like') {
+            this.addLike()
+        }
+        else if (recipeType === 'unlike') {
+            this.removeLike()
+        }
     }
 
     setCategory(category: string): void {

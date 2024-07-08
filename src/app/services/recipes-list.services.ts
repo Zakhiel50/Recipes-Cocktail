@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { RecipeModel } from "../models/recipe_model";
+import { RecipeType } from "../models/recipe-type.type";
 
 @Injectable({
     providedIn: 'root',
@@ -31,5 +32,13 @@ export class RecipeListService {
 
       getRecipes(): RecipeModel[] {
         return [...this.recipes]
+      }
+
+      likeRecipeById(recipeId: string, likeType: RecipeType): void {
+        const foundRecipe : RecipeModel | undefined = this.recipes.find(recipe => recipe.id === recipeId)
+        if (!foundRecipe) {
+          throw new Error('Recipe not found')
+        }
+        foundRecipe.like(likeType);
       }
 }
